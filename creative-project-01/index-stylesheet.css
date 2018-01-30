@@ -1,0 +1,46 @@
+@charset "UTF-8"
+/* Stylesheet for index.html of creative project 1 */
+
+html,
+html *{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #fffff0;
+}
+
+/*--------------------------------------*/
+/*-------------- Main ------------------*/
+/*--------------------------------------*/
+
+.main-title{
+	width: 80%;
+	position: relative;
+	overflow: hidden;
+	background-image: url("./images/HFAC_Exterior_2.jpg");
+	padding-top: 14em;
+	padding-bottom: 14em; 
+	display: block;
+	margin: 0 auto;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serrif";
+}
+
+.main-title h1{
+	text-align: center;
+	font-size: 3em;
+	letter-spacing: .1em;
+	color: #002255;
+	text-shadow: 2px 2px 8px rgba(197, 125, 175, .5);
+}
+
+.main-title p{
+	text-align: center;
+	font-size: 1.5em;
+	margin: 0 1.5em;
+	padding-top: 1.5em;
+	color: #002255;
+	text-shadow: 2px 2px 6px rgba(197, 125, 175, .5);
+}
