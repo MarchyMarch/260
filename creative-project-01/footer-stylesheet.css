@@ -4,15 +4,20 @@
 /*---------------------------------------------------*/
 /*-------------------- Footer -----------------------*/
 /*---------------------------------------------------*/
-
 footer{
-	margin-top: 20vw;
+	padding-top: 10em;
+	background-color: #002255;
+}
+
+.footer{
 	width: 100%;
-	height: 5vw;
-	padding-bottom: 0;
+	height: 5.2vw;
+	background-color: #002255;
+	padding-bottom: 1vw;
 }
 
 .footer-info{
+	margin-top: .5vw;
 	display: flex;
 	flex-direction: column;
 	width: 75%;
@@ -21,12 +26,12 @@ footer{
 
 .footer-info p{
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	color: #c5af7d;
 	display: inline-block;
 	text-align: left;
 	text-transform: uppercase;
 	letter-spacing: .5em;
 	padding-left: 2em;
-	line-height: 1;
 	float: left;
 }
 
