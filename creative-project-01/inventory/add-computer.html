@@ -7,11 +7,11 @@
 	<link rel="icon" type="image/jpg" href="../icon/logo-32.jpg" sizes="32x32">
 	<link rel="icon" type="image/jpg" href="../icon/logo-16.jpg" sizes="16x16">
 
-	<title>Add Item</title>
+	<title>Add Computer</title>
 	<!-- Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="../logged-out-stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="../footer-stylesheet.css">
-	<link rel="stylesheet" type="text/css" href="./add-item-stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="./add-computer-stylesheet.css">
 </head>
 <body>
 	<!-- Header -->
@@ -42,6 +42,48 @@
 				<div class="model">
 					<label for="model">Model: </label>
 					<input type="text" id="model" name="item_model">
+				</div>
+				<div class="opp-sys">
+					<label for="os">OS: </label>
+					<input type="text" id="os" name="item_os">
+				</div>
+				<div class="screen-size">
+					<label for="scrn-size">Screen Size: </label>
+					<input type="text" id="scrn-size" name="item_scrn_size">
+				</div>
+				<div class="processor-div">
+					<label for="processor">Processor: </label>
+					<input type="text" id="processor" name="item_processor">
+				</div>
+				<div class="ram-div">
+					<label for="ram">RAM: </label>
+					<select id="ram" class="ram-select">
+						<option value="2">2 GB</option>
+						<option value="4">4 GB</option>
+						<option value="8">8 GB</option>
+						<option value="16">16 GB</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+				<div class="hdd-div">
+					<label for="space">Storage Size: </label>
+					<select id="space" name="item_hdd_size">
+						<option value="128">128 GB</option>
+						<option value="256">256 GB</option>
+						<option value="500">500 GB</option>
+						<option value="750">750 GB</option>
+						<option value="1000">1 TB</option>
+						<option value="other">Other</option>
+					</select>
+					<label for="type">Type: </label>
+					<select id="type" name="item_hdd_type">
+						<option value="hdd">HDD</option>
+						<option value="sdd">SSD</option>
+					</select>
+				</div>
+				<div class="graphics-dic">
+					<label for="graphics">Graphics Card: </label>
+					<input type="textarea" id="graphics" name="item_graphics">
 				</div>
 				<div class="description">
 					<label for="description">Description: </label>

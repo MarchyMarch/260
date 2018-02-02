@@ -28,13 +28,15 @@ body{
 }
 
 .selection-container{
-	width: 80%;
+	width: 75%;
 	display: block;
 	margin: 0 auto;
 	padding-bottom: 2.5vw;
 }
 
 .selection-container img{
-	width: 25vw;
-	margin: 0 .5vw;
+	display: inline-block;
+	margin: 0 auto;
+	width: 30vw;
+	margin: 0 2.5vw;
 }

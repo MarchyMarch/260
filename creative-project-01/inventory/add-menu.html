@@ -11,7 +11,7 @@
 	<!-- Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="../logged-out-stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="../footer-stylesheet.css">
-	<link rel="stylesheet" type="text/css" href="./add-item-stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="./add-menu.css">
 </head>
 <body>
 	<!-- Header -->
@@ -30,33 +30,11 @@
 	<!-- Main -->
 	<main>
 		<div class="main-title">
-			<h1>Add An Item</h1>
-			<p>Add an item to the inventory</p>
+			<h1>Choose Which Item To Add</h1>
 		</div>
-		<div class="form-div">
-			<form class="form">
-				<div class="make">
-					<label for="make">Make: </label>
-					<input type="text" id="make" name="item_make">
-				</div>
-				<div class="model">
-					<label for="model">Model: </label>
-					<input type="text" id="model" name="item_model">
-				</div>
-				<div class="description">
-					<label for="description">Description: </label>
-					<textarea id="description" name="item_description"></textarea>
-				</div>
-				<div class="add-photo">
-					<label for="photo">Add Photo:</label>
-					<input type="file" id="photo" name="item_photo" accept="image/*">
-					<!--<button class="add-photo-button">Choose File</button>-->
-					<img src="../images/default-placeholder.png" alt="gray-photo">
-				</div>
-				<div class="submit-button">
-					<a href="./success.html">Submit</a>
-				</div>
-			</form>
+		<div class="selection-container">
+			<a href="./add-computer.html"><img src="../images/add-a--comp-sqr.jpg"></a>
+			<a href="./add-item.html"><img src="../images/add-an-item-sqr.jpg"></a>
 		</div>
 	</main>
 	<!-- Footer -->
