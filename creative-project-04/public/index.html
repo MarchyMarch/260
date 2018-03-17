@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- Tab Icons -->
+	<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+	<link rel="icon" type="image/jpg" href="./images/logo-32.jpg" sizes="32x32">
+	<link rel="icon" type="image/jpg" href="./images/logo-16.jpg" sizes="16x16">
+	<title>CFAC Inventory</title>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div id="app">
+		<div class="title">
+			<h1>CFAC CSR Inventory</h1>
+			<h2>This is the inventory system for the College of Fine Arts and Communications</h2>
+		</div>
+		<div class="controls">
+			<button v-on:click="showAll()">Show All</button>
+			<button v-on:click="showAvailable()">Show Available</button>
+			<button v-on:click="showCheckedOut()">Show Checked Out</button>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" integrity="sha256-pU9euBaEcVl8Gtg+FRYCtin2vKLN8sx5/4npZDmY2VA=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
