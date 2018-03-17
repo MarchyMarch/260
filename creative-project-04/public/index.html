@@ -8,6 +8,7 @@
 	<link rel="icon" type="image/jpg" href="./images/logo-16.jpg" sizes="16x16">
 	<title>CFAC Inventory</title>
 	<!-- Stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -20,6 +21,26 @@
 			<button v-on:click="showAll()">Show All</button>
 			<button v-on:click="showAvailable()">Show Available</button>
 			<button v-on:click="showCheckedOut()">Show Checked Out</button>
+		</div>
+		<div class="inventory">
+			<ul class="computers">
+				<li v-for="computer in filteredComputers">
+					<ol>
+						<li><b>Make:</b>&nbsp;{{computer.make}}</li>
+						<li><b>Model:</b>&nbsp;{{computer.model}}</li>
+						<li><b>OS:</b>&nbsp;{{computer.os}}</li>
+						<li><b>Screen Size:</b>&nbsp;{{computer.screen}}</li>
+						<li><b>Processor:</b>&nbsp;{{computer.processor}}</li>
+						<li><b>RAM:</b>&nbsp;{{computer.ram}}</li>
+						<li><b>Storage Size:</b>&nbsp;{{computer.storageSize}} &nbsp;<b>Type:</b> &nbsp;{{computer.storageType}}</li>
+						<li><b>Graphics Card:</b>&nbsp;{{computer.graphics}}</li>
+						<li><b>Description:</b>&nbsp;{{computer.description}}</li>
+					</ol>
+				</li>
+			</ul>
+			<ul class="items">
+				
+			</ul>
 		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>

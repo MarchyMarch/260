@@ -13,7 +13,9 @@ app.use(express.static('public'));
 let items = [];
 let itemID = 0;
 
-let computers = [];
+let computers = [
+	{make: 'Lenovo', model: 'ThinkPad T550', os: 'Linux Mint', screen: '15-inch', processor: 'i7', ram: 16, storageSize: 500, storageType: 'SSD', graphics: 'integrated', description: 'best computer'}
+];
 let computerID = 0;
 
 // Set up the CRUD for items

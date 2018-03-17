@@ -45,27 +45,33 @@ var app = new Vue({
 				return !computer.checkedout;
 			});
 		},
-		// TODO: filter out computers seperately
 		filteredItems: function(){
 			if(this.show === 'checkedout'){
-				this.items.filter(function(item){
+				return this.items.filter(function(item){
 					return item.checkedout;
-				})
-				this.computers.filter(function(computer){
-					return computer.checkedout;
-				})
+				});
 			}
 			if(this.show === 'available'){
-				this.items.filter(function(item){
+				return this.items.filter(function(item){
 					return !item.checkedout;
 				});
-				this.computers.filter(function(computer){
+			}
+
+			return this.items;
+		},
+		filteredComputers: function(){
+			if(this.show === 'checkedout'){
+				return this.computers.filter(function(computer){
+					return computer.checkedout;
+				});
+			}
+			if(this.show === 'available'){
+				return this.computers.filter(function(computer){
 					return !computer.checkedout;
 				});
 			}
 
-			this.items;
-			this.computers;
+			return this.computers;
 		}
 	},
 	methods: {
