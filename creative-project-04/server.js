@@ -14,7 +14,7 @@ let items = [];
 let itemID = 0;
 
 let computers = [
-	{make: 'Lenovo', model: 'ThinkPad T550', os: 'Linux Mint', screen: '15-inch', processor: 'i7', ram: 16, storageSize: 500, storageType: 'SSD', graphics: 'integrated', description: 'best computer'}
+	{id: 0, make: 'Lenovo', model: 'ThinkPad T550', os: 'Linux Mint', screen: '15-inch', processor: 'i7', ram: 16, storageSize: 500, storageType: 'SSD', graphics: 'integrated', description: 'best computer', checkedout: false, person: ''}
 ];
 let computerID = 0;
 
@@ -27,7 +27,7 @@ app.get('/api/items', (req, res) => {
 app.post('/api/items', (req, res) =>{
 	console.log("Item added at " + new Date().toLocaleString());
 	itemID = itemID + 1;
-	let item = {id:id, make:req.body.make, model:req.body.model, description:req.body.description, checkedout:req.body.checkedout, person:req.body.person};
+	let item = {id:itemID, make:req.body.make, model:req.body.model, description:req.body.description, checkedout:req.body.checkedout, person:req.body.person};
 	items.push(item);
 	res.send(item);
 });
@@ -41,6 +41,7 @@ app.put('/api/items/:id', (req, res) => {
 	item.model = req.body.model;
 	item.description = req.body.description;
 	item.checkedout = req.body.checkedout;
+	item.person = req.body.person;
 	res.send(item);
 });
 
@@ -64,7 +65,7 @@ app.get('/api/computers', (req, res) => {
 app.post('/api/computers', (req, res) => {
 	console.log("Computer added at " + new Date().toLocaleString());
 	computerID = computerID + 1;
-	let computer = {id:id, make:req.body.make, model:req.body.model, os:req.body.os, screen:req.body.screen, processor:req.body.processor, ram:req.body.ram, storageSize:req.body.storageSize, storageType:req.body.storageType, graphics:req.body.graphics, description:req.body.description, checkedout:req.body.checkedout, person:req.body.person};
+	let computer = {id:computerID, make:req.body.make, model:req.body.model, os:req.body.os, screen:req.body.screen, processor:req.body.processor, ram:req.body.ram, storageSize:req.body.storageSize, storageType:req.body.storageType, graphics:req.body.graphics, description:req.body.description, checkedout:false, person:req.body.person};
 	computers.push(computer);
 	res.send(computer);
 });
@@ -85,6 +86,7 @@ app.put('/api/computers/:id', (req, res) => {
 	computer.graphics = req.body.graphics;
 	computer.description = req.body.description;
 	computer.checkedout = req.body.checkedout;
+	computer.person = req.body.person;
 	res.send(computer);
 });
 

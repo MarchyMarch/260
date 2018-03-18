@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- Tab Icons -->
+	<link rel="shortcut icon" type="image/x-icon" href="./icon/favicon.ico">
+	<link rel="icon" type="image/jpg" href="../icon/logo-32.jpg" sizes="32x32">
+	<link rel="icon" type="image/jpg" href="../icon/logo-16.jpg" sizes="16x16">
+
+	<title>Add Item</title>
+	<!-- Stylesheets -->
+	<link rel="stylesheet" type="text/css" href="./add-item-stylesheet.css">
+</head>
+<body>
+	<!-- Header -->
+	<header>
+		<nav class="nav-bar">
+			<div class="nav-logo">
+				<a href="index.html"><img src="images/logo-64.jpg" id="logo" alt="Logo"></a>
+			</div>
+			<ol class="menu">
+				<li class="menu-item"><a href="add-computer.html">Add Computer</a></li>
+			</ol>
+		</nav>
+	</header>
+	<!-- Main -->
+	<main>
+	<div id="app">	
+		<div class="main-title">
+			<h1>Add An Item</h1>
+			<p>Add an item to the inventory</p>
+		</div>
+		<div class="form-div">
+			<form class="form" v-on:submit.prevent="addItem()">
+				<div class="make">
+					<label for="make">Make: </label>
+					<input type="text" v-model="make" name="item_make">
+				</div>
+				<div class="model">
+					<label for="model">Model: </label>
+					<input type="text" v-model="model" name="item_model">
+				</div>
+				<div class="description">
+					<label for="description">Description: </label>
+					<textarea v-model="description" name="item_description"></textarea>
+				</div>
+				<button class="submit-button">Submit</button>
+			</form>
+		</div>
+	</div>
+	</main>
+	<!-- Footer -->
+	<footer>
+		<div class="footer">
+			
+		</div>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js" integrity="sha256-pU9euBaEcVl8Gtg+FRYCtin2vKLN8sx5/4npZDmY2VA=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

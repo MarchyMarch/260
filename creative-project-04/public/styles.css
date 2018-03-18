@@ -1,8 +1,81 @@
 @charset "UTF-8"
+/* Stylesheet for logged out menu of creative project 1 */
+
+/*------------------------------------------------------*/
+/*--------------------- Header -------------------------*/
+/*------------------------------------------------------*/
+
+header{
+	background-color: rgb(0, 46, 93);
+	width: 100%;
+	height: 8vw;
+	top: 0px;
+	padding: .5em;
+	position: fixed;
+	z-index: 1000;
+	margin-bottom: .5em;
+	overflow: hidden;
+}
+
+#logo{
+	height: 3vw;
+	vertical-align: middle;
+	float: left;
+	margin-top: .5vw;
+	margin-bottom: .5vw;
+	margin-left: .6vw;
+}
+
+.nav-bar{
+	background-color: #002255;
+	height: 4vw;
+	display: block;
+	float: none;
+	overflow: hidden;
+}
+
+.nav-bar ol{
+	vertical-align: middle;
+}
+
+.menu-item{
+	display: inline-block;
+	float: right;
+	margin-right: .5vw;
+	background-color: #002255;
+}
+
+.menu-item a{
+	display: inline-block;
+	color: #c5af7d;
+	font-size: 1vw;
+	padding: .5vw .6vw;
+	text-decoration: none;
+	font-family: Gotham, "Helcetica Neue", Helcetica, Arial, "sans-serrif";
+}
+
+.menu-item a:hover{
+	background-color: rgb(75, 131, 218);
+	border-bottom: 1px solid #c5af7d;
+}
+
+/*------------------ Main ------------------------*/
 
 body {
     font-family: 'Rubik', sans-serif;
-    background: #f3f3f3;
+    background: #fffff0;
+}
+
+h1{
+	font-family: Gotham, "Helcetica Neue", Helcetica, Arial, "sans-serrif";
+	font-size: 2vw;
+	text-align: center;	
+}
+
+h2{
+	font-family: Gotham, "Helcetica Neue", Helcetica, Arial, "sans-serrif";
+	font-size: 1.5vw;
+	text-align: center;
 }
 
 ul {
@@ -10,14 +83,59 @@ ul {
 }
 
 li {
-    background: #ffffff;
+    background: #f3f3f3;
     display: flex;
 }
 
-ol li{
-	margin-bottom: 1vw;
-	padding: 0;
-	font-family: 'Roboto', sans-serif;
-	font-size: 1vw;
+.computers{
 	text-align: center;
+	align-content: center;
+	display: block;
+	margin: 0 auto;
+}
+
+.item-body{
+	width: 80vw;
+	margin: 0 auto;
+	margin-top: 1.5vw;
+	text-align: center;
+	align-content: center;
+}
+
+.ordered-list{
+	text-align: center;
+	margin: 1vw 0;
+
+}
+
+.ordered-list li{
+	font-family: Gotham, "Helcetica Neue", Helcetica, Arial, "sans-serrif";
+	text-align: center;
+	font-size: 1vw;
+}
+
+.controls{
+	align-content: center;
+	text-align: center;
+}
+
+button{
+	font-family: Gotham, "Helcetica Neue", Helcetica, Arial, "sans-serrif";
+	font-size: 1vw;
+}
+
+.delete{
+	height: 1.5vw;
+	float: right;
+	top: 0;
+	right: 0;
+	margin-right: 1vw;
+	margin-top: 1vw;
+	margin-left: 1vw;
+}
+
+.check-out{
+	height: 1.5vw;
+	margin-left: auto;
+	margin-top: 1vw;
 }

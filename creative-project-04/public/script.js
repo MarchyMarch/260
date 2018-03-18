@@ -72,7 +72,7 @@ var app = new Vue({
 			}
 
 			return this.computers;
-		}
+		},
 	},
 	methods: {
 		showAll: function() {this.show = 'all';},
@@ -104,11 +104,14 @@ var app = new Vue({
 				model: this.model,
 				description: this.description,
 				checkedout: false,
+				person: this.person,
 			}).then(response => {
 				this.make = '';
 				this.model = '';
 				this.description = '';
+				this.person = '';
 				this.getItems();
+				location.href = "index.html";
 				return true;
 			}).catch(err => {
 				console.log(err);
@@ -127,6 +130,7 @@ var app = new Vue({
 				graphics: this.graphics,
 				description: this.description,
 				checkedout: false,
+				person: this.person,
 			}).then(response => {
 				this.make = '';
 				this.model = '';
@@ -138,15 +142,21 @@ var app = new Vue({
 				this.storageType = '';
 				this.graphics = '';
 				this.description = '';
+				this.person = '';
 				this.getComputers();
+				location.href = "index.html";
 				return true;
 			}).catch(err => {
 				console.log(err);
 			});
 		},
 		checkOutComputer: function(computer){
+			// console.log(computer.id);
+			// console.log("checkedout = " + computer.checkedout);
 			var isPerson = this.getPerson();
+			// console.log("person checking out is " + this.person);
 			if(isPerson){
+				// console.log("hit is person " + this.person);
 				axios.put("/api/computers/" + computer.id, {
 					make: computer.make,
 					model: computer.model,
@@ -161,7 +171,10 @@ var app = new Vue({
 					checkedout: true,
 					person: this.person,
 				}).then(response => {
+					// console.log("person in then statement " + this.person);
 					this.person = '';
+					// console.log("after clear = " + this.person);
+					this.getComputers();
 					return true;
 				}).catch(err => {
 					console.log(err);
@@ -179,6 +192,7 @@ var app = new Vue({
 					person: this.person,
 				}).then(response => {
 					this.person = '';
+					this.getItems();
 					return true;
 				}).catch(err => {
 					console.log(err);

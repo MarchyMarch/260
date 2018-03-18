@@ -1,0 +1,159 @@
+@charset "UTF-8"
+/* Stylesheet for logged out menu of creative project 1 */
+
+/*------------------------------------------------------*/
+/*--------------------- Header -------------------------*/
+/*------------------------------------------------------*/
+
+header{
+	background-color: rgb(0, 46, 93);
+	width: 100%;
+	height: 8vw;
+	top: 0px;
+	padding: .5em;
+	position: fixed;
+	z-index: 1000;
+	margin-bottom: .5em;
+	overflow: hidden;
+}
+
+#logo{
+	height: 3vw;
+	vertical-align: middle;
+	float: left;
+	margin-top: .5vw;
+	margin-bottom: .5vw;
+	margin-left: .6vw;
+}
+
+.nav-bar{
+	background-color: #002255;
+	height: 4vw;
+	display: block;
+	float: none;
+	overflow: hidden;
+}
+
+.nav-bar ol{
+	vertical-align: middle;
+}
+
+.menu-item{
+	display: inline-block;
+	float: right;
+	margin-right: .5vw;
+	background-color: #002255;
+}
+
+.menu-item a{
+	display: inline-block;
+	color: #c5af7d;
+	font-size: 1vw;
+	padding: .5vw .6vw;
+	text-decoration: none;
+	font-family: Gotham, "Helcetica Neue", Helcetica, Arial, "sans-serrif";
+}
+
+.menu-item a:hover{
+	background-color: rgb(75, 131, 218);
+	border-bottom: 1px solid #c5af7d;
+}
+
+body{
+	background: #fffff0;
+}
+
+/*----------------------------------------*/
+/*----------------- Main -----------------*/
+/*----------------------------------------*/
+.main-title{
+	padding-top: 2.5vw;
+	width: 80%;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serrif";
+}
+
+.main-title h1{
+	font-size: 3em;
+	color: #002255;
+	text-shadow: 2px 2px 8px rgba(197, 125, 175, .5);
+	letter-spacing: .1em;
+}
+
+.main-title p{
+	font-size: 1.5em;
+	color: #002255;
+	text-shadow: 2px 2px 6px rgba(197, 125, 175, .5);
+}
+
+.form{
+	margin: 0 auto;
+	margin-top: 2.5em;
+	width: 30%;
+	position: relative;
+	overflow: hidden;
+	padding: 1em;
+	border: 1px solid #CCC;
+	border-radius: 1em;
+	margin-bottom: 5em;
+}
+
+.form div{
+	margin-top: 1em;
+}
+
+
+label{
+	display: inline-block;
+	width: 25%;
+	text-align: right;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+}
+
+input, textarea{
+	background: white;
+	font: 1em Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	width: 50%;
+	box-sizing: border-box;
+	border: 1px solid #999;
+	border-radius: 4px;
+}
+
+textarea{
+	vertical-align: top;
+	height: 5vw;
+}
+
+input:focus{
+	border-color: #c5af7d;
+}
+
+.add-photo img{
+	width: 12.5vw;
+	display: block;
+	margin: 0 auto;
+	margin-top: 1em;
+}
+
+.submit-button{
+	width: 25%;
+	display: block;
+	margin: 0 auto;
+	margin-top: 1em;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	text-align: center;
+	background: #002255;
+	border: 2px solid #c5af7d
+}
+
+.submit-button a{
+	text-decoration: none;
+	color: #c5af7d;
+}
+
+button{
+	color: #c5af7d;
+}
