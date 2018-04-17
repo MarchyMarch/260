@@ -1,13 +1,13 @@
 exports.up = function(knex, Promise) {
 	return Promise.all([
-		knex.schema.createTable('item_specs', function(table){
-			table.uuid('id').primary();
+		knex.schema.createTable('items', function(table){
+			table.increments('id').primary();
 			table.string('make');
 			table.string('model');
 			table.text('description');
 			table.boolean('checked_out');
+			table.integer('user_id').unsigned().references('id').inTable('users');
 			table.string('name');
-			table.string('email');
 		})
 	]);
 };

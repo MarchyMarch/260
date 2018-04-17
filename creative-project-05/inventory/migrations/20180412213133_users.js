@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
 			table.increments('id').primary();
 			table.string('username').unique();
 			table.string('name');
-			table.string('email').unique();
+			table.string('email');
 			table.string('hash');
 			table.boolean('admin');
 		}),

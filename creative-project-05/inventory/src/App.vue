@@ -1,23 +1,48 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <nav-bar/>
     <router-view/>
+    <footer-bar/>
   </div>
 </template>
 
 <script>
+import NavBar from './components/NavBar';
+import FooterBar from './components/FooterBar';
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    NavBar,
+    FooterBar,
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body {
+      font-family: Helvetica, sans-serif;
+      background: #fffff0;
+  }
+
+  h1{
+    font-family: Gotham, "Helcetica Neue", Helcetica, Arial, "sans-serrif";
+    font-size: 2vw;
+    text-align: center; 
+  }
+
+  h2{
+    font-family: Gotham, "Helcetica Neue", Helcetica, Arial, "sans-serrif";
+    font-size: 1.5vw;
+    text-align: center;
+  }
+
+  ul {
+      list-style: none;
+  }
+
+  li {
+      background: #f3f3f3;
+      display: flex;
+  }
+
 </style>
