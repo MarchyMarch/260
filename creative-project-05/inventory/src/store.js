@@ -8,6 +8,7 @@ export default new Vuex.Store({
 	state: {
 		user: {},
 		loggedIn: false,
+		user_id: 0,
 		loginError: '',
 		registerError: '',
 		checkedOutItems: [],
@@ -54,20 +55,19 @@ export default new Vuex.Store({
 	actions: {
 		// Register a user
 		register(context,user) {
-			console.log("store username: " + user.username);
 			axios.post("/api/users",user).then(response => {
 				context.commit('setUser', response.data.user);
 				context.commit('setLoggedIn',true);
 				context.commit('setRegisterError',"");
 				context.commit('setLoginError',"");
-				this.$router.push({name: 'HomePage'});
+				return true;
 			}).catch(error => {
 				context.commit('setLoginError',"");
 				context.commit('setLoggedIn',false);
 				if (error.response) {
 					if (error.response.status === 403)
 						context.commit('setRegisterError',"That username already has an account.");
-					return;
+					return false;
 				}
 				context.commit('setRegisterError',"Sorry, your request failed. We will look into it.");
 			});
@@ -120,8 +120,10 @@ export default new Vuex.Store({
 
 		// Check out item works for returning as well
 		checkOutItem(context, item){
-			axios.post("/api/users/" + context.state.user.id + "/items", item).then(response => {
-				return context.dispatch('getCheckedOut');
+			axios.post("/api/users/" + context.state.user.id + "/items/" + item.id, item).then(response => {
+				context.commit('setcheckedOutItems', response.data.items);
+				context.dispatch('getAvailableItems');
+				return;
 			}).catch(error => {
 				console.log("Item checkout failed: " + error);
 			});
@@ -129,8 +131,33 @@ export default new Vuex.Store({
 
 		// Check out computer works for returning as well
 		checkOutComputer(context, computer){
-			axios.post("/api/users/" + context.state.user.id + "/computers", computers).then(response => {
-				return context.dispatch('getCheckedOut');
+			axios.post("/api/users/" + context.state.user.id + "/computers", computer).then(response => {
+				context.commit('setCheckedOutComputers', response.data.computers);
+				context.dispatch('getAvailableComputers');
+				return;
+			}).catch(error => {
+				console.log("Computer checkout failed: " + error);
+			});
+		},
+
+		// Return an item
+		returnItem(context, item){
+			axios.post("/api/users/" + context.state.user.id + "/items/" + item.id + "/return", item).then(response => {
+				context.commit('setavailableItems', response.data.items);
+				context.dispatch('getCheckedOut');
+				return;
+			}).catch(error => {
+				console.log("Item checkout failed: " + error);
+			});
+
+		},
+
+		// Return a computer
+		returnComputer(context, computer){
+			axios.post("/api/users/" + context.state.user.id + "/computers/return", computer).then(response => {
+				context.commit('setAvailableComputers', response.data.computers);
+				context.dispatch('getCheckedOut');
+				return;
 			}).catch(error => {
 				console.log("Computer checkout failed: " + error);
 			});
@@ -139,7 +166,7 @@ export default new Vuex.Store({
 		// Add an item
 		addItem(context, item){
 			axios.post("/api/items", item).then(response => {
-				return context.dispatch('getAllItems');
+				return context.dispatch('getAvailableItems');
 			}).catch(error => {
 				console.log("Add item failed: " + error);
 			});
@@ -147,7 +174,7 @@ export default new Vuex.Store({
 		// Add a computer
 		addComputer(context, computer){
 			axios.post("/api/computers", computer).then(response => {
-				return context.dispatch('getAllComputers');
+				return context.dispatch('getAvailableComputers');
 			}).catch(error => {
 				console.log("Add computer failed: " + error);
 			});
@@ -168,5 +195,23 @@ export default new Vuex.Store({
 				console.log("error in getting computers: " + computers);
 			});
 		},
+		// Delete item
+		deleteItem(context,item){
+			axios.delete("/api/items/" + item.id).then(response =>{
+				context.dispatch('getCheckedOut');
+				context.dispatch('getAvailableItems');
+			}).catch(error =>{
+				console.log("Error deleting item: " + error);
+			});
+		},
+		// Delete computer
+		deleteComputer(context,computer){
+			axios.delete("/api/computers/" + computer.id).then(response =>{
+				context.dispatch('getCheckedOut');
+				context.dispatch('getAvailableComputers');
+			}).catch(error => {
+				console.log("Error deleting Computer: " + error);
+			});
+		}
 	}
 });

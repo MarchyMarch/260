@@ -6,7 +6,7 @@
 				<p class="documentation">Documentation is found in the GitHub repository</p>
 			</div>
 			<div class="footer-content">
-				<a href="https://github.com/MarchyMarch/creative-project01/tree/master" target="_blank">
+				<a href="https://github.com/MarchyMarch/260/tree/master/creative-project-05/inventory" target="_blank">
 					<img class="footer-content-default" src="/static/images/github-byu-tan.png" alt="GitHub">
 					<img class="footer-content-hover" src="/static/images/github-white.png" alt="GitHub">
 				</a>
@@ -25,7 +25,7 @@
 	/*---------------------------------------------------*/
 	footer{
 		background-color: #002255;
-		height: 10vw;
+		height: 6vw;
 	}
 
 	.footer{
@@ -36,7 +36,7 @@
 	}
 
 	.footer-info{
-		margin-top: 1vw;
+		margin-top: .8vw;
 		display: flex;
 		flex-direction: column;
 		width: 75%;
@@ -52,6 +52,7 @@
 		letter-spacing: .5vw;
 		padding-left: 2vw;
 		float: left;
+		font-size: .75vw;
 	}
 
 	.footer-content{
@@ -77,7 +78,7 @@
 
 	.footer-content a img{
 		width: auto;
-		height: 10vw;
+		height: 6vw;
 		vertical-align: middle;
 	}
 

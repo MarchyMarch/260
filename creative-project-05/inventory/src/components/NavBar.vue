@@ -4,6 +4,8 @@
 			<router-link to="/"><img src="/static/images/logo-64.jpg" id="logo"></router-link>	
 		</div>
 		<ul id="menu">
+			<li class="right" v-if="loggedIn"><a @click="addComputer">Add Computer</a></li>
+			<li class="right" v-if="loggedIn"><a v-on:click='addItem'>Add Item</a></li>
 			<li class="right" v-if="loggedIn"><a @click="logout" href="#">Logout</a></li>
 			<li class="right" id="username" v-if="loggedIn">{{user.username}}</li>
 			<div v-else class="center">
@@ -17,8 +19,9 @@
 				</div>
 			</div>
 		</ul>
-		<div class="flexWrapper errorPlace">
+		<div class="errorPlace">
 			<p v-if="loginError" class="flexRight error">{{loginError}}</p>
+			<p v-if="registerError">{{registerError}}</p>
 		</div>
 	</nav>
 </template>
@@ -42,6 +45,9 @@
 			loginError: function(){
 				return this.$store.getters.loginError;
 			},
+			registerError: function(){
+				return this.$store.getters.registerError;
+			}
 		},
 		methods: {
 			login: function(){
@@ -58,7 +64,13 @@
 			},
 			register: function(){
 				this.$router.push({name: 'Register'});
-			}
+			},
+			addItem: function(){
+				this.$router.push({name: 'AddItem'});
+			},
+			addComputer: function(){
+				this.$router.push({name: 'AddComputer'})
+			},
 		}
 	}
 </script>
@@ -147,5 +159,12 @@
 	.submit-button{
 		text-decoration: none;
 		color: #c5af7d;
+	}
+
+	.errorPlace{
+		float: right;
+		color: red;
+		margin-right: 8px;
+		margin-top: -26px;
 	}
 </style>

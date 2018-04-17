@@ -1,6 +1,5 @@
 <template>
 	<div>
-	<nav-bar/>
 	<div class="main-container">
 		<div class="main-title">
 			<h1>CSR Inventory System</h1>
@@ -8,7 +7,6 @@
 			<img src="static/images/HFAC_Exterior_2.jpg">
 		</div>
 	</div>
-	<footer-bar/>
 	</div>
 </template>
 

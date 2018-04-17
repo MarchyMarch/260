@@ -1,6 +1,5 @@
 <template>
 	<div>
-	<nav-bar/>
 	<div class="feed">
 		<h1>Checked Out</h1>
 		<div class="checkedOut">
@@ -16,12 +15,12 @@
 						<li><b>Storage Size:</b>&nbsp;{{computer.storageSize}} &nbsp;<b>Type:</b> &nbsp;{{computer.storageType}}</li>
 						<li><b>Graphics Card:</b>&nbsp;{{computer.graphics}}</li>
 						<li><b>Description:</b>&nbsp;{{computer.description}}</li>
-						<div v-if="computer.checkedout">
-							<li><b>Checked Out By:</b>&nbsp;{{computer.person}}</li>
+						<div v-if="computer.checked_out">
+							<li><b>Checked Out By:</b>&nbsp;{{computer.name}}</li>
 						</div>
 					</ol>
 					<button v-on:click="returnComputer(computer)" class="check-out">Return</button>
-					<!-- <button v-on:click=deleteComputer(computer) class="delete">X</button> -->
+					<button v-on:click=deleteComputer(computer) class="delete">X</button>
 				</li>
 			</ul>
 			<ul class="items">
@@ -30,12 +29,12 @@
 						<li><b>Make:</b>&nbsp;{{item.make}}</li>
 						<li><b>Model:</b>&nbsp;{{item.model}}</li>
 						<li><b>Description:</b>&nbsp;{{item.description}}</li>
-						<div v-if="item.checkedout">
-							<li><b>Checked Out By:</b>&nbsp;{{item.person}}</li>
+						<div v-if="item.checked_out">
+							<li><b>Checked Out By:</b>&nbsp;{{item.name}}</li>
 						</div>
 					</ol>
 					<button v-on:click="returnItem(item)" class="check-out">Return</button>
-					<!-- <button v-on:click=deleteItem(item) class="delete">X</button> -->
+					<button v-on:click=deleteItem(item) class="delete">X</button>
 				</li>
 			</ul>
 		</div>
@@ -58,7 +57,7 @@
 						</div>
 					</ol>
 					<button v-on:click="checkOutComputer(computer)" class="check-out">Check Out</button>
-					<!-- <button v-on:click=deleteComputer(computer) class="delete">X</button> -->
+					<button v-on:click="deleteComputer(computer)" class="delete">X</button>
 				</li>
 			</ul>
 			<ul class="items">
@@ -72,12 +71,11 @@
 						</div>
 					</ol>
 					<button v-on:click="checkOutItem(item)" class="check-out">Check Out</button>
-					<!-- <button v-on:click=deleteItem(item) class="delete">X</button> -->
+					<button v-on:click="deleteItem(item)" class="delete">X</button>
 				</li>
 			</ul>
 		</div>
 	</div>
-	<footer-bar/>
 	</div>
 </template>
 
@@ -86,7 +84,7 @@
 		name: 'UserFeed',
 		data() {
 			return{
-
+				
 			}
 		},
 		created: function(){
@@ -101,7 +99,19 @@
 			available: function(){
 				this.$store.dispatch('getAvailableComputers');
 				this.$store.dispatch('getAvailableItems');
-			}
+			},
+			checkedOutComputers: function(){
+				return this.$store.getters.checkedOutComputers;
+			},
+			checkOutItems: function(){
+				return this.$store.getters.checkedOutItems;
+			},
+			availableComputers: function(){
+				return this.$store.getters.availableComputers;
+			},
+			availableItems: function(){
+				return this.$store.getters.availableItems;
+			},
 		},
 		methods: {
 			checkOutComputer: function(computer) {
@@ -116,9 +126,9 @@
 					hdd: computer.hdd,
 					hdd_type: computer.hdd_type,
 					graphics: computer.graphics,
-					checkedout: true,
-					user_id: this.$store.user.id,
-					name: this.$store.user.name,
+					checked_out: true,
+					user_id: this.$store.getters.user.id,
+					name: this.$store.getters.user.name,
 				});
 			},
 			checkOutItem: function(item){
@@ -127,17 +137,16 @@
 					make: item.make,
 					model: item.model,
 					description: item.description,
-					checkedout: true,
-					user_id: this.$store.user.id,
-					name: this.$store.user.name,
+					checked_out: true,
+					user_id: this.$store.getters.user.id,
+					name: this.$store.getters.user.name,
 				});
 			},
 
 			// return functions opperate the same as checked out
-			// 4294967295 is max value of an usigned int, the data type
-			// being used.
+			// the user id associated is the primary user... me
 			returnComputer: function(computer){
-				this.$store.dispatch('checkOutComputer', {
+				this.$store.dispatch('returnComputer', {
 					id: computer.id,
 					make: computer.make,
 					model: computer.model,
@@ -148,21 +157,35 @@
 					hdd: computer.hdd,
 					hdd_type: computer.hdd_type,
 					graphics: computer.graphics,
-					checkedout: false,
-					user_id: 4294967295,
+					checked_out: false,
+					user_id: 1,
 					name: '',
 				})
 			},
 			returnItem: function(item){
-				this.$store.dispatch('checkOutItem', {
+				this.$store.dispatch('returnItem', {
 					id: item.id,
 					make: item.make,
 					model: item.model,
 					description: item.description,
-					checkedout: false,
-					user_id: 4294967295,
+					checked_out: false,
+					user_id: 1,
 					name: '',
 				});
+			},
+			deleteComputer: function(computer){
+				if(confirm("Are you sure you want to delete this computer?")){
+					this.$store.dispatch('deleteComputer', {
+						id: computer.id,
+					});
+				}
+			},
+			deleteItem: function(item){
+				if(confirm("Are you sure you want to delete this item?")){
+					this.$store.dispatch('deleteItem', {
+						id: item.id,
+					});
+				}
 			},
 		},
 	}
@@ -230,6 +253,7 @@
 	button{
 		font-family: Gotham, "Helcetica Neue", Helcetica, Arial, "sans-serrif";
 		font-size: 1vw;
+		margin-right: 1vw;
 	}
 
 	.delete{

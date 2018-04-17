@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-bar/>
+    
     <div>
       <div v-if="loggedIn">
         <user-feed/>
@@ -9,7 +9,7 @@
         <welcome-page/>
       </div>
     </div>
-    <footer-bar/>
+    
   </div>
 </template>
 
